@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require('cors');
 require('dotenv').config();
 
 const usersRoutes = require("./users-routes");
@@ -9,6 +10,8 @@ const HttpError = require("./http-error");
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use("/api/users", usersRoutes);
 
